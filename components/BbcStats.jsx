@@ -1,6 +1,15 @@
 import { useState } from 'react';
 import dayjs from 'dayjs';
-import { createStyles, UnstyledButton, Text, Paper, Group, Center, Title } from '@mantine/core';
+import {
+  createStyles,
+  UnstyledButton,
+  Text,
+  Paper,
+  Group,
+  Center,
+  Title,
+  useMantineColorScheme,
+} from '@mantine/core';
 import {
   IconSwimming,
   IconBike,
@@ -14,9 +23,7 @@ import {
 
 const useStyles = createStyles((theme) => ({
   root: {
-    backgroundImage: `linear-gradient(-60deg, ${theme.colors[theme.primaryColor][4]} 0%, ${
-      theme.colors[theme.primaryColor][7]
-    } 100%)`,
+    backgroundColor: theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 8 : 6],
     padding: theme.spacing.xl,
     borderRadius: theme.radius.md,
     display: 'flex',
@@ -30,7 +37,7 @@ const useStyles = createStyles((theme) => ({
     marginLeft: 'auto',
     marginRight: 'auto',
     marginTop: theme.spacing.lg,
-    color: theme.colors[theme.primaryColor][6],
+    color: theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 8 : 6],
   },
 
   stat: {
@@ -41,7 +48,7 @@ const useStyles = createStyles((theme) => ({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
-    backgroundColor: theme.white,
+    backgroundColor: theme.colorScheme === 'dark' ? theme.black : theme.white,
   },
 
   label: {
@@ -134,6 +141,9 @@ const data = [
 ];
 
 export function StatsControls() {
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const dark = colorScheme === 'dark';
+
   const { classes } = useStyles();
   const [date, setDate] = useState(new Date(2021, 9, 24));
 
@@ -141,12 +151,12 @@ export function StatsControls() {
     <Paper className={classes.stat} radius="md" shadow="md" p="xs" key={stat.label}>
       <stat.icon size={32} className={classes.icon} stroke={1.5} />
       <Center>
-        <Title order={2} style={{ color: 'black' }}>
+        <Title order={2} style={{ color: dark ? 'white' : 'black' }}>
           {stat.label}
         </Title>
       </Center>
       <Center>
-        <Title order={3} style={{ color: 'black', fontWeight: 'initial' }}>
+        <Title order={3} style={{ color: dark ? 'white' : 'black', fontWeight: 'initial' }}>
           {stat.value}
         </Title>
       </Center>

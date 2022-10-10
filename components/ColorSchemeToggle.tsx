@@ -6,7 +6,7 @@ export function ColorSchemeToggle() {
 
   return (
     <ActionIcon
-      style={{ top: '1rem', right: '1rem', position: 'fixed' }}
+      style={{ top: '1rem', right: '1rem', position: 'fixed', zIndex: 999 }}
       onClick={() => toggleColorScheme()}
       variant={'outline'}
       size={'lg'}
