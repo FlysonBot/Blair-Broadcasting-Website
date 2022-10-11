@@ -27,6 +27,7 @@ var useStyles = createStyles((theme) => ({
 
     [theme.fn.smallerThan('md')]: {
       fontSize: 50,
+      color: theme.colorScheme === "dark" ? "white" : "black"
     },
   },
   titleEmphasis: {
@@ -35,11 +36,25 @@ var useStyles = createStyles((theme) => ({
   blob: {
     opacity: 0.3,
   },
+  parallax: {},
+  parallaxRoot: {
+    [theme.fn.smallerThan("md")]: {
+      display:"none"
+    }
+  },
+  parallaxMobile: {
+    display:"none",
+    [theme.fn.smallerThan("md")]: {
+      display:"initial"
+    }
+  }
 }));
 
 export default function HomePage() {
   const { classes } = useStyles();
+
   return (
+    <div>
     <>
       {/*!--
       <div
@@ -119,7 +134,7 @@ export default function HomePage() {
         </Text>
       </div>
           */}
-      <div style={{ height: '100vh' }}>
+      <div className={classes.parallaxRoot} style={{ height: '100vh' }}>
         <img
           src="blob1.svg"
           className={classes.blob}
@@ -171,7 +186,7 @@ export default function HomePage() {
             filter: 'brightness(85%)',
           }}
         ></img>
-        <Parallax blur={{ min: -15, max: 13 }} style={{ height: '100vh' }} bgImage="./hero.png">
+        <Parallax className={classes.parallax} blur={{ min: -15, max: 13 }} style={{ height: '100vh' }} bgImage="./hero.webp">
           <div>
             <Title className={classes.title} align="center">
               Welcome to the <br />
@@ -191,6 +206,20 @@ export default function HomePage() {
             </Text>
           </div>
         </Parallax>
+      </div>
+      <div className={classes.parallaxMobile}>
+        
+      <Title className={classes.title} align="center">
+              Welcome to the <br />
+              <Text
+                style={{ zIndex: 999, position: 'relative' }}
+                className={classes.titleEmphasis}
+                inherit
+                component="span"
+              >
+                Blair Broadcasting Club
+              </Text>
+            </Title>
       </div>
       <Center style={{ paddingTop: '6rem', paddingBottom: '4rem' }}>
         <Title order={3} size="h1">
@@ -244,5 +273,6 @@ export default function HomePage() {
         </Center>
       </Container>
     </>
+    </div>
   );
 }

@@ -108,7 +108,7 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
 
   return (
     <div style={{ position: 'fixed', zIndex: 999999, right: 0, left: 0 }}>
-      <Header height={HEADER_HEIGHT} mb={120} className={classes.root}>
+      <Header height={HEADER_HEIGHT} className={classes.root}>
         <ColorSchemeToggle />
         <Container className={classes.header}>
           <Group> 
