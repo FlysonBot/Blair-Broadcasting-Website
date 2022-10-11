@@ -7,6 +7,7 @@ import { MantineProvider, ColorScheme, ColorSchemeProvider, Header } from '@mant
 import { NotificationsProvider } from '@mantine/notifications';
 import { ColorSchemeToggle } from '../components/ColorSchemeToggle';
 import { HeaderResponsive } from '../components/Header';
+import { FooterSocial } from '../components/Footer';
 
 const BrandColors = {
   50: '#ffe3e3',
@@ -32,11 +33,11 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   };
 
   return (
-    <>
+    <div >
       <Head>
         <title>Mantine next example</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-        <link rel="shortcut icon" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.png" />
       </Head>
 
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
@@ -72,11 +73,14 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
                 { link: '/about', label: 'About us' },
               ]}
             />
+            <main>
             <Component {...pageProps} />
+            </main>
+            <FooterSocial/>
           </NotificationsProvider>
         </MantineProvider>
       </ColorSchemeProvider>
-    </>
+    </div>
   );
 }
 

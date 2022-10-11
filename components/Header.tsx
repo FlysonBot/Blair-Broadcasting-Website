@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { createStyles, Header, Container, Group, Burger, Paper, Transition } from '@mantine/core';
+import { createStyles, Header, Container, Group, Burger, Paper, Transition, Image, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { MantineLogo } from '@mantine/ds';
 import { ColorSchemeToggle } from './ColorSchemeToggle';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -35,6 +34,9 @@ const useStyles = createStyles((theme) => ({
   },
 
   links: {
+    [theme.fn.smallerThan("lg")]: {
+    paddingRight:"6rem",
+    },
     [theme.fn.smallerThan('sm')]: {
       display: 'none',
     },
@@ -105,11 +107,17 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
   ));
 
   return (
-    <div style={{ position: 'fixed', height: '10rem', zIndex: 999999, right: 0, left: 0 }}>
+    <div style={{ position: 'fixed', zIndex: 999999, right: 0, left: 0 }}>
       <Header height={HEADER_HEIGHT} mb={120} className={classes.root}>
         <ColorSchemeToggle />
         <Container className={classes.header}>
-          <MantineLogo size={28} />
+          <Group> 
+            <div> 
+            <Image height={"3rem"} src="favicon.png"></Image>
+            </div>
+            
+            <Text style={{paddingTop:"2px"}} size="xl" weight={500}>Blair Broadcasting</Text>
+          </Group>
           <Group spacing={5} className={classes.links}>
             {items}
           </Group>
