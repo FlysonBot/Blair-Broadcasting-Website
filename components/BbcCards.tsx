@@ -1,4 +1,13 @@
-import { createStyles, SimpleGrid, Card, Image, Text, Container, AspectRatio, Skeleton } from '@mantine/core';
+import {
+  createStyles,
+  SimpleGrid,
+  Card,
+  Image,
+  Text,
+  Container,
+  AspectRatio,
+  Skeleton,
+} from '@mantine/core';
 
 const mockdata = [
   {
@@ -21,7 +30,7 @@ const mockdata = [
   },
   {
     title: 'Member Example (+ Placeholder Skeleton)',
-    image:'',
+    image: '',
     job: 'N/A',
   },
 ];
@@ -47,7 +56,7 @@ export function ArticlesCardsGrid() {
   const cards = mockdata.map((article) => (
     <Card key={article.title} p="md" radius="md" component="a" href="#" className={classes.card}>
       <AspectRatio ratio={1920 / 1080}>
-        {article.image === "" ? <Skeleton/> : <Image src={article.image} />}
+        {article.image === '' ? <Skeleton /> : <Image src={article.image} />}
       </AspectRatio>
       <Text color="dimmed" size="xs" transform="uppercase" weight={700} mt="md">
         {article.job}
@@ -59,10 +68,10 @@ export function ArticlesCardsGrid() {
   ));
 
   return (
-    <Container py="xl">
+    <Container size={2000} py="xl">
       <SimpleGrid cols={2} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
         {cards}
       </SimpleGrid>
     </Container>
   );
-} 
+}

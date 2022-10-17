@@ -41,6 +41,9 @@ const useStyles = createStyles((theme) => ({
     marginBottom: theme.spacing.xs,
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
 
+    [theme.fn.largerThan('xl')]: {
+      fontSize: 80,
+    },
     '@media (max-width: 520px)': {
       fontSize: 28,
       textAlign: 'left',
@@ -91,27 +94,28 @@ export function HeroicAbout() {
   const { classes } = useStyles();
 
   return (
-    <Container className={classes.wrapper} size={1400}>
-      <Dots className={classes.dots} style={{ left: 0, top: 0 }} />
-      <Dots className={classes.dots} style={{ left: 60, top: 0 }} />
-      <Dots className={classes.dots} style={{ left: 0, top: 140 }} />
+    <Container className={classes.wrapper}>
+      <Dots className={classes.dots} style={{ left: 0, top: 40 }} />
+      <Dots className={classes.dots} style={{ left: 220, top: 260 }} />
+      <Dots className={classes.dots} style={{ left: 0, top: 80 }} />
       <Dots className={classes.dots} style={{ right: 0, top: 60 }} />
 
       <div className={classes.inner}>
         <Title className={classes.title}>
-          Introducing the{' '}
+          Introducing the <br />
           <Text component="span" className={classes.highlight} inherit>
             Blair Broadcasting
           </Text>{' '}
+          <br />
           team
         </Title>
 
         <Container p={0} size={600}>
           <Text size="lg" color="dimmed" className={classes.description}>
-            Commited to making weekly information readily available, we are the team behind the videos!
+            Commited to making weekly information readily available, we are the team behind the
+            videos!
           </Text>
         </Container>
-
       </div>
     </Container>
   );
