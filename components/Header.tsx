@@ -1,8 +1,19 @@
 import { useState } from 'react';
-import { createStyles, Header, Container, Group, Burger, Paper, Transition, Image, Text } from '@mantine/core';
+import {
+  createStyles,
+  Header,
+  Container,
+  Group,
+  Burger,
+  Paper,
+  Transition,
+  Text,
+} from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { ColorSchemeToggle } from './ColorSchemeToggle';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+import favicon from '../public/favicon.png';
 import Link from 'next/link';
 
 const HEADER_HEIGHT = 60;
@@ -34,8 +45,8 @@ const useStyles = createStyles((theme) => ({
   },
 
   links: {
-    [theme.fn.smallerThan("lg")]: {
-    paddingRight:"6rem",
+    [theme.fn.smallerThan('lg')]: {
+      paddingRight: '6rem',
     },
     [theme.fn.smallerThan('sm')]: {
       display: 'none',
@@ -111,12 +122,15 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
       <Header height={HEADER_HEIGHT} className={classes.root}>
         <ColorSchemeToggle />
         <Container className={classes.header}>
-          <Group> 
-            <div> 
-            <Image height={"3rem"} src="favicon.png"></Image>
+          <Group>
+            <div style={{ paddingTop: '0.65rem' }}>
+              <Image height="60" width="60" src={favicon}></Image>
             </div>
-            
-            <Text style={{paddingTop:"2px"}} size="xl" weight={500}>Blair Broadcasting</Text>
+            <Link href="/" passHref>
+              <Text component="a" style={{ paddingTop: '2px' }} size="xl" weight={500}>
+                Blair Broadcasting
+              </Text>
+            </Link>
           </Group>
           <Group spacing={5} className={classes.links}>
             {items}
