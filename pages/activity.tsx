@@ -37,7 +37,7 @@ export default function Survey() {
             </Text>
       </Center>
       <Center>
-        <iframe className={classes.formFrame} allowFullScreen={true} sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-popups-to-escape-sandbox allow-downloads allow-modals" frameBorder="0" aria-label="Google Forms, Broadcast Video Survey"  src="https://docs.google.com/forms/d/e/1FAIpQLSe9awGYSDWf140WUmGTYVe2qCdoqx46I9sV3Tufnis9lO0EZQ/viewform?embedded=true"></iframe>
+        <iframe className={classes.formFrame} allowFullScreen={true} sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-popups-to-escape-sandbox allow-downloads allow-modals" frameBorder="0" aria-label="Google Forms, Broadcast Video Survey"  src="https://docs.google.com/forms/d/e/1FAIpQLSe9awGYSDWf140WUmGTYVe2qCdoqx46I9sV3Tufnis9lO0EZQ/viewform"></iframe>
       </Center>
       </>
     );
