@@ -261,7 +261,7 @@ export default function HomePage() {
 
             <Link passHref href="https://youtu.be/xydmfnRJn3w">
               <Button variant="light" color="brand" fullWidth mt="md" radius="md" component="a">
-                Watch now
+                Open on Youtube
               </Button>
             </Link>
           </Card>
