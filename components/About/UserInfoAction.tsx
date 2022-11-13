@@ -25,9 +25,12 @@ export function UserInfoAction({ avatar, name, email, job }: UserInfoActionProps
         {email} • {job}
       </Text>
 
-      <Button variant="default" fullWidth mt="md">
+      <Button variant="default" fullWidth mt="md" onClick={mailto}>
         Send message
       </Button>
     </Paper>
+    function mailto() {
+      window.open("mailto:" + email);
+    }
   );
 }
